@@ -1,4 +1,5 @@
 package CLASES_SUELTAS;
+import COMPOSITIVE.Unidad;
 import USUARIOS.Huesped;
 import java.util.Date;
 public class Incidente {

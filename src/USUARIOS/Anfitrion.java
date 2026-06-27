@@ -1,9 +1,14 @@
 package USUARIOS;
 
-import CLASES_SUELTAS.Propiedad;
+import java.util.ArrayList;
+
+import COMPOSITIVE.CompPropiedad;
+import COMPOSITIVE.Propiedad;
 import CLASES_SUELTAS.Reserva;
 
 public class Anfitrion extends Usuario{
+
+    private ArrayList<CompPropiedad>listaPropiedades= new ArrayList<>();
     public Anfitrion(String id, String nombre, String correo) {
         super(id, nombre, correo);
     }
