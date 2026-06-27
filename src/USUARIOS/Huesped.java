@@ -18,6 +18,7 @@ public class Huesped extends Usuario{
 
     public ArrayList<Propiedad> buscaPropiedad(CriteriosBusqueda filtros){
 
+
         return new ArrayList<Propiedad>();
     }
 

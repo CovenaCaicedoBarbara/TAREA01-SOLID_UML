@@ -1,7 +1,8 @@
 package COMPOSITIVE;
 
 public interface CompPropiedad {
-    void operacion();
+    void mostrarInfo();
+    void aplicarReglas(String reglas);
 
 
 
