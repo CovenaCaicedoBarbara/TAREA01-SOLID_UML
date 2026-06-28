@@ -1,11 +1,13 @@
-package USUARIOS;
+package usuarios;
+import incidentes.Incidente;
+public abstract class PersonalSoporte {
 
-abstract class PersonalSoporte extends Usuario{
-    public PersonalSoporte(String id, String nombre, String correo) {
-        super(id, nombre, correo);
+    protected String nombre;
+
+    public PersonalSoporte(String nombre) {
+        this.nombre = nombre;
     }
-    public void procesarIncidente(){
-        System.out.println("incidente procesado por soporte");
-    }
+
+    public abstract void atenderIncidente(Incidente incidente);
 
 }

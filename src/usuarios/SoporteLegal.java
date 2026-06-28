@@ -1,11 +1,13 @@
-package USUARIOS;
+package usuarios;
+import incidentes.Incidente;
+public class SoporteLegal extends PersonalSoporte {
 
-import CLASES_SUELTAS.SoporteLegalHandler;
+    public SoporteLegal(String nombre) {
+        super(nombre);
+    }
 
-public class SoporteLegal extends PersonalSoporte{
-    private SoporteLegalHandler soportelegalhandler;
-
-    public SoporteLegal(String id, String nombre, String correo) {
-        super(id, nombre, correo);
+    @Override
+    public void atenderIncidente(Incidente incidente) {
+        System.out.println("Soporte legal " + nombre + " resolviendo incidente crítico.");
     }
 }

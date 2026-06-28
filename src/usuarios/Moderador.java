@@ -1,12 +1,13 @@
-package USUARIOS;
+package usuarios;
+import incidentes.Incidente;
+public class Moderador extends PersonalSoporte {
 
-import CLASES_SUELTAS.ModeradorHandler;
+    public Moderador(String nombre) {
+        super(nombre);
+    }
 
-public class Moderador extends SoporteLegal{
-
-    private ModeradorHandler moderadorhandler;
-
-    public Moderador(String id, String nombre, String correo) {
-        super(id, nombre, correo);
+    @Override
+    public void atenderIncidente(Incidente incidente) {
+        System.out.println("Moderador " + nombre + " está revisando incidente.");
     }
 }

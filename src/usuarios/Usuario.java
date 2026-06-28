@@ -1,26 +1,29 @@
-package USUARIOS;
+package usuarios;
+public abstract class Usuario {
 
-abstract class Usuario {
     protected String id;
     protected String nombre;
     protected String correo;
-public Usuario (String id,String nombre,String correo){
-    this.nombre= nombre;
-    this.id=id;
-    this.correo=correo;
-}
+    protected String password;
 
-    public String getId(){
-        return id;
+    public Usuario(String id, String nombre, String correo, String password) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.password = password;
     }
-    public String nombre(){
+
+    public boolean iniciarSesion(String correo, String password) {
+        System.out.println(nombre + " ha iniciado sesión.");
+        return true;
+    }
+
+    public void cerrarSesion() {
+        System.out.println(nombre + " cerró sesión.");
+    }
+
+    public String getNombre() {
         return nombre;
     }
-    public String getCorreo(){
-        return correo;
-    }
-    public void iniciarSesion(){
-        System.out.println("iniciando sesion");
-
-    }
 }
+

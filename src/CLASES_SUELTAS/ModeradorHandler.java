@@ -1,6 +1,0 @@
-package CLASES_SUELTAS;
-
-public class ModeradorHandler extends ManejadorIncidente {
-    @Override
-    public void manejar(Incidente i){}
-}

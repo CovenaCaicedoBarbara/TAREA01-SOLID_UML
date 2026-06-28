@@ -1,37 +1,48 @@
-package USUARIOS;
-import CLASES_SUELTAS.CriteriosBusqueda;
-import COMPOSITIVE.Propiedad;
-import COMPOSITIVE.Unidad;
-import CLASES_SUELTAS.Reserva;
-import CLASES_SUELTAS.Incidente;
-
+package usuarios;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import propiedades.CriterioBusqueda;
+import propiedades.Unidad;
+import reservas.Reserva;
+import incidentes.Incidente;
 
-public class Huesped extends Usuario{
+public class Huesped extends Usuario {
 
-    ArrayList<Incidente> incidentesReportados= new ArrayList<>();
-    ArrayList<Reserva> listaReservas= new ArrayList<>();
-    public Huesped(String id,String nombre,String correo){
-        super(id,nombre,correo);
+    private List<Reserva> reservas;
+
+    public Huesped(String id, String nombre, String correo, String password) {
+        super(id, nombre, correo, password);
+        this.reservas = new ArrayList<>();
     }
 
-    public ArrayList<Propiedad> buscaPropiedad(CriteriosBusqueda filtros){
-
-
-        return new ArrayList<Propiedad>();
+    public List<Unidad> buscarPropiedad(CriterioBusqueda criterio) {
+        System.out.println(nombre + " está buscando propiedades...");
+        return new ArrayList<>();
     }
 
-    public Reserva realiszarReserva(Unidad u, Date[] fechas){
+    public Reserva realizarReserva(Unidad unidad, Date inicio, Date fin) {
+        System.out.println(nombre + " está realizando una reserva.");
 
-        return new Reserva();
-    }
-    public Incidente reportarIncidente(Unidad u, String descripcion) {
-        Incidente nuevo = new Incidente(this, u, descripcion);
-        incidentesReportados.add(nuevo);
-        //BaseDeDatos.guardarIncidente(nuevo);
-        return nuevo;
-    }
-    public void calificar( Reserva r, int Calificacion, String com){}
+        Reserva reserva = new Reserva(inicio, fin, this, unidad);
+        reservas.add(reserva);
 
+        return reserva;
+    }
+
+    public Incidente reportarIncidente(String descripcion, Reserva reserva) {
+        System.out.println(nombre + " reportó incidente: " + descripcion);
+
+        return new Incidente("INC001", descripcion, reserva);
+    }
+
+    public List<Reserva> historialReservas() {
+        System.out.println("Mostrando historial de reservas...");
+        return reservas;
+    }
+
+    public void calificar(Reserva reserva, int puntuacion, String comentario) {
+        System.out.println(nombre + " calificó la reserva con " + puntuacion);
+        System.out.println("Comentario: " + comentario);
+    }
 }
